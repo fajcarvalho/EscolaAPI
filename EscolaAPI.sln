@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscolaAPI.Infrastructure", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscolaAPI.Tests", "EscolaAPI.Tests\EscolaAPI.Tests.csproj", "{3E267616-5AAB-4B71-89E8-BCCABC18C2B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EscolaAPI.IntegrationTests", "EscolaAPI.IntegrationTests\EscolaAPI.IntegrationTests.csproj", "{FB28B6F5-3CEC-4B63-850A-648611F373FA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{3E267616-5AAB-4B71-89E8-BCCABC18C2B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E267616-5AAB-4B71-89E8-BCCABC18C2B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E267616-5AAB-4B71-89E8-BCCABC18C2B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB28B6F5-3CEC-4B63-850A-648611F373FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB28B6F5-3CEC-4B63-850A-648611F373FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB28B6F5-3CEC-4B63-850A-648611F373FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB28B6F5-3CEC-4B63-850A-648611F373FA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
