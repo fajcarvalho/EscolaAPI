@@ -20,8 +20,12 @@ namespace EscolaAPI.Infrastructure.Data.Configurations
             builder.Property(a => a.Nome).IsRequired().HasMaxLength(100);
             builder.Property(a => a.Matricula).IsRequired().HasMaxLength(20);
             builder.Property(a => a.DataNascimento).IsRequired();
-            builder.Property(a => a.Email).HasMaxLength(100);
-            builder.Property(a => a.Telefone).HasMaxLength(15);
+            builder.Property(a => a.Email)
+                .HasMaxLength(100)
+                .IsRequired(false);
+            builder.Property(a => a.Telefone)
+                .HasMaxLength(15)
+                .IsRequired(false);
 
             // Configuração do enum
             builder.Property(a => a.Status)

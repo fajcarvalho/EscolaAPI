@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EscolaAPI.Infrastructure.Data 
 {
-    internal class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : DbContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) 
             : base(options) 
