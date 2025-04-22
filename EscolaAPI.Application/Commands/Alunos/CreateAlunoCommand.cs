@@ -13,10 +13,10 @@ namespace EscolaAPI.Application.Commands.Alunos
 {
     public class CreateAlunoCommand : IRequest<int>
     {
-        public CreateAlunoDTO AlunoDTO { get; set; }
+        public CreateAlunoDto AlunoDto { get; set; }
 
-        public CreateAlunoCommand(CreateAlunoDTO alunoDTO) {
-            AlunoDTO = alunoDTO;
+        public CreateAlunoCommand(CreateAlunoDto alunoDto) {
+            AlunoDto = alunoDto;
         }
     }
 
@@ -34,7 +34,7 @@ namespace EscolaAPI.Application.Commands.Alunos
         public async Task<int> Handle(CreateAlunoCommand request, CancellationToken cancellationToken) 
         {
             // Mapear DTO para entidade
-            var aluno = _mapper.Map<Aluno>(request.AlunoDTO);
+            var aluno = _mapper.Map<Aluno>(request.AlunoDto);
 
             // Adicionar aluno ao repositório
             await _alunoRepository.AddAsync(aluno);
