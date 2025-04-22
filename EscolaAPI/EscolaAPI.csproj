@@ -19,8 +19,9 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\EscolaAPI.Application\EscolaAPI.Application.csproj" />
-  </ItemGroup>
+    <ItemGroup>
+	    <ProjectReference Include="..\EscolaAPI.Application\EscolaAPI.Application.csproj" />
+	    <ProjectReference Include="..\EscolaAPI.Infrastructure\EscolaAPI.Infrastructure.csproj" />
+    </ItemGroup>
 
 </Project>

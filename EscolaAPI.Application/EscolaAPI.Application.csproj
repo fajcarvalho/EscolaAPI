@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\EscolaAPI.Domain\EscolaAPI.Domain.csproj" />
-    <ProjectReference Include="..\EscolaAPI.Infrastructure\EscolaAPI.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

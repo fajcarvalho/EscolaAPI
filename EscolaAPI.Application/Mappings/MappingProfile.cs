@@ -15,7 +15,7 @@ namespace EscolaAPI.Application.Mappings
         {
             // Mapeamento de Aluno
             CreateMap<Aluno, AlunoDto>().ReverseMap();
-            CreateMap<CreateAlunoDTO, Aluno>();
+            CreateMap<CreateAlunoDto, Aluno>();
             CreateMap<UpdateAlunoDto, Aluno>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
