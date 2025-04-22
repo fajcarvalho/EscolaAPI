@@ -1,17 +1,21 @@
 using EscolaAPI.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using EscolaAPI.Infrastructure.Extensions;
+using EscolaAPI.Application.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Adicionar serviços ao contêiner.
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Usar o método de extensão para configurar a infraestrutura
-builder.Services.AddInfrastructureServices(
-    builder.Configuration.GetConnectionString("DefaultConnection"));
+// Adicionar serviços da camada de aplicação
+builder.Services.AddApplicationServices();
+
+// Adicionar serviços da camada de infraestrutura
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+builder.Services.AddInfrastructureServices(connectionString);
 
 var app = builder.Build();
 
@@ -74,7 +78,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseAuthorization();
+
 app.MapControllers();
 
 app.Run();
