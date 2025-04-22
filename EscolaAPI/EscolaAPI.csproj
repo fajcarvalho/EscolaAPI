@@ -15,10 +15,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="8.1.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
     <ItemGroup>
 	    <ProjectReference Include="..\EscolaAPI.Application\EscolaAPI.Application.csproj" />
 	    <ProjectReference Include="..\EscolaAPI.Infrastructure\EscolaAPI.Infrastructure.csproj" />

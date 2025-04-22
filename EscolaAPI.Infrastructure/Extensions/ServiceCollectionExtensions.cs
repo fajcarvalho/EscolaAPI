@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EscolaAPI.Application.Interfaces;
 using EscolaAPI.Infrastructure.Data;
+using EscolaAPI.Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,7 +21,10 @@ namespace EscolaAPI.Infrastructure.Extensions
             
             // Aqui você pode registrar outros serviços de infraestrutura
             // como repositories, etc.
-            
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped<IAlunoRepository, AlunoRepository>(); // Registrar o repositório de Aluno
+
+
             return services;
         }
     }
