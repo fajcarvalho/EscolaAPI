@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Services\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,5 +22,7 @@
   <ItemGroup>
     <ProjectReference Include="..\EscolaAPI.Domain\EscolaAPI.Domain.csproj" />
   </ItemGroup>
-
+<ItemGroup>
+  <ProjectReference Include="..\EscolaAPI.Application\EscolaAPI.Application.csproj" />
+</ItemGroup>
 </Project>

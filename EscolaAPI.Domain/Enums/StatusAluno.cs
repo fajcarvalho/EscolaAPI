@@ -8,8 +8,8 @@ namespace EscolaAPI.Domain.Enums
 {
     public enum StatusAluno 
     {
-            Ativo,
-            Trancado,
-            Formado
+        Ativo,
+        Trancado,
+        Formado
     }
 }
