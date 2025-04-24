@@ -23,6 +23,8 @@ namespace EscolaAPI.Infrastructure.Extensions
             // como repositories, etc.
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped<IAlunoRepository, AlunoRepository>(); // Registrar o repositório de Aluno
+            services.AddScoped<IProfessorRepository, ProfessorRepository>(); // Registrar o repositório de Professor
+	        services.AddScoped<IDepartamentoRepository, DepartamentoRepository>(); // Registrar o repositório de Departamentos
 
 
             return services;
