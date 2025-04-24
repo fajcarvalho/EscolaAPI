@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using EscolaAPI.Application.DTOs;
 using FluentValidation;
 
-namespace EscolaAPI.Application.Validators 
+namespace EscolaAPI.Application.Validators.Aluno 
 {
     public class UpdateAlunoDtoValidator : AbstractValidator<UpdateAlunoDto>
     {
@@ -35,7 +35,7 @@ namespace EscolaAPI.Application.Validators
                 .When(x => !string.IsNullOrEmpty(x.Telefone));
 
             // Validação do status com opções válidas do enum 
-            var statusOptions = Enum.GetNames(typeof(EscolaAPI.Domain.Enums.StatusAluno))
+            var statusOptions = Enum.GetNames(typeof(Domain.Enums.StatusAluno))
                                     .Select(name => $"'{name}'")
                                     .ToArray();
             var optionsText = string.Join(", ", statusOptions);

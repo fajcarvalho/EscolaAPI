@@ -38,7 +38,16 @@ namespace EscolaAPI.Application.Mappings
             CreateMap<UpdateProfessorDto, Professor>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
-            
+            // Mapeamentos para Curso
+            CreateMap<Curso, CursoDto>()
+                .ForMember(dest => dest.DepartamentoNome, 
+                           opt => opt.MapFrom(src => src.Departamento != null ? src.Departamento.Nome : null))
+                .ForMember(dest => dest.QuantidadeDisciplinas, 
+                           opt => opt.MapFrom(src => src.Disciplinas != null ? src.Disciplinas.Count : 0));
+            CreateMap<CreateCursoDto, Curso>();
+            CreateMap<UpdateCursoDto, Curso>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
         }
     }
 }
