@@ -48,6 +48,36 @@ namespace EscolaAPI.Application.Mappings
             CreateMap<UpdateCursoDto, Curso>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
+            // Mapeamentos para Disciplina
+            CreateMap<Disciplina, DisciplinaDto>()
+                .ForMember(dest => dest.CursoNome, 
+                           opt => opt.MapFrom(src => src.Curso != null ? src.Curso.Nome : null))
+                .ForMember(dest => dest.QuantidadeTurmas, 
+                           opt => opt.MapFrom(src => src.Turmas != null ? src.Turmas.Count : 0))
+                .ForMember(dest => dest.PreRequisitos, opt => opt.MapFrom(src => 
+                    src.PreRequisitos != null 
+                        ? src.PreRequisitos.Select(pr => new PreRequisitoDisciplinaDto 
+                        { 
+                            Id = pr.PreRequisito.Id, 
+                            Codigo = pr.PreRequisito.Codigo, 
+                            Nome = pr.PreRequisito.Nome 
+                        })
+                        : new List<PreRequisitoDisciplinaDto>()))
+                .ForMember(dest => dest.Professores, opt => opt.MapFrom(src => 
+                    src.Professores != null 
+                        ? src.Professores.Select(pd => new ProfessorDisciplinaDto 
+                        { 
+                            Id = pd.Professor.Id, 
+                            Nome = pd.Professor.Nome, 
+                            Titulacao = pd.Professor.Titulacao,
+                            EhResponsavel = pd.EhResponsavel
+                        })
+                        : new List<ProfessorDisciplinaDto>()));
+
+            CreateMap<CreateDisciplinaDto, Disciplina>();
+            CreateMap<UpdateDisciplinaDto, Disciplina>()
+                .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
+
         }
     }
 }
