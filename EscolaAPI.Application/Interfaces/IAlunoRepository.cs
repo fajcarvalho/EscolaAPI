@@ -11,5 +11,6 @@ namespace EscolaAPI.Application.Interfaces
     {
         Task<Aluno> GetAlunoWithEnderecoAsync(int id);
         Task<Aluno> GetAlunoByMatriculaAsync(string matricula);
+        Task<IEnumerable<Aluno>> GetAllWithEnderecoAsync();
     }
 }

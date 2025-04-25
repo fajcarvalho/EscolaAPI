@@ -27,7 +27,7 @@ namespace EscolaAPI.Application.Queries.Alunos
 
         public async Task<IEnumerable<AlunoDto>> Handle(GetAllAlunosQuery request, CancellationToken cancellationToken) 
         {
-            var alunos = await _alunoRepository.GetAllAsync();
+            var alunos = await _alunoRepository.GetAllWithEnderecoAsync();
             return _mapper.Map<IEnumerable<AlunoDto>>(alunos);
         }
     }
