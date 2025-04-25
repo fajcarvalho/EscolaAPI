@@ -27,5 +27,12 @@ namespace EscolaAPI.Infrastructure.Repositories
                 .Include(a => a.Endereco)
                 .FirstOrDefaultAsync(a => a.Matricula == matricula);
         }
+
+        public async Task<IEnumerable<Aluno>> GetAllWithEnderecoAsync()
+        {
+            return await _context.Alunos
+                .Include(a => a.Endereco)
+                .ToListAsync();
+        }
     }
 }
