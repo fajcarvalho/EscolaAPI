@@ -33,7 +33,8 @@ namespace EscolaAPI.Application.Mappings
             
             // Mapeamentos para Professor
             CreateMap<Professor, ProfessorDto>()
-                .ForMember(dest => dest.DepartamentoNome, opt => opt.MapFrom(src => src.Departamento != null ? src.Departamento.Nome : null));
+                .ForMember(dest => dest.DepartamentoNome, 
+                    opt => opt.MapFrom(src => src.Departamento != null ? src.Departamento.Nome : null));
             CreateMap<CreateProfessorDto, Professor>();
             CreateMap<UpdateProfessorDto, Professor>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
@@ -74,7 +75,10 @@ namespace EscolaAPI.Application.Mappings
                         })
                         : new List<ProfessorDisciplinaDto>()));
 
-            CreateMap<CreateDisciplinaDto, Disciplina>();
+            CreateMap<CreateDisciplinaDto, Disciplina>()
+                .ForMember(dest => dest.Professores, opt => opt.Ignore())
+                .ForMember(dest => dest.PreRequisitos, opt => opt.Ignore())
+                .ForMember(dest => dest.DisciplinasQuePreRequisitamEsta, opt => opt.Ignore());
             CreateMap<UpdateDisciplinaDto, Disciplina>()
                 .ForAllMembers(opts => opts.Condition((src, dest, srcMember) => srcMember != null));
 
