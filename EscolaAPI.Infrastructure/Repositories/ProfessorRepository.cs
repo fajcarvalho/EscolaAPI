@@ -14,6 +14,13 @@ namespace EscolaAPI.Infrastructure.Repositories
         {
         }
 
+         public async Task<IEnumerable<Professor>> GetAllWithDepartamentoAsync()
+         {
+        return await _context.Professores
+            .Include(p => p.Departamento)
+            .ToListAsync();
+         }
+        
         public async Task<Professor> GetProfessorWithDepartamentoAsync(int id)
         {
             return await _context.Professores

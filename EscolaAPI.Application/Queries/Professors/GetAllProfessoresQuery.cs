@@ -25,7 +25,7 @@ namespace EscolaAPI.Application.Queries.Professores
         
         public async Task<IEnumerable<ProfessorDto>> Handle(GetAllProfessoresQuery request, CancellationToken cancellationToken)
         {
-            var professores = await _professorRepository.GetAllAsync();
+            var professores = await _professorRepository.GetAllWithDepartamentoAsync();
             return _mapper.Map<IEnumerable<ProfessorDto>>(professores);
         }
     }
